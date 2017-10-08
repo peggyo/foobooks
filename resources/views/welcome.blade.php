@@ -4,13 +4,30 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Foobooks</title>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>Welcome to Foobooks</h1>
+    </body>
+</html>
+
+
+<!--- ORIGINAL CODE AS INSTALLED BY LARAVEL:
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
+        <!COMMENT-- Fonts --COMMENT>
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-        <!-- Styles -->
+        <!COMMENT-- Styles --COMMENT>
         <style>
             html, body {
                 background-color: #fff;
@@ -93,3 +110,5 @@
         </div>
     </body>
 </html>
+*--- END ORIGINAL CODE AS INSTALLED BY LARAVEL
+--->
