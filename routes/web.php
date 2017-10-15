@@ -11,9 +11,48 @@
 |
 */
 
+/**
+* Debugbar: shows examples of using the debugbar package
+*/
+Route::get('/debugbar', function () {
 
+    $data = ['foo' => 'bar'];
+    Debugbar::info($data);
+    Debugbar::info('Current environment: '.App::environment());
+    Debugbar::error('Error!');
+    Debugbar::warning('Watch out…');
+    Debugbar::addMessage('Another message', 'mylabel');
+
+    return 'Just demoing some of the features of Debugbar';
+});
+
+
+/**
+* Environment - examples of settings
+*/
+Route::get('/env', function () {
+    dump(config('app.name'));
+    dump(config('app.env'));
+    dump(config('app.debug'));
+    dump(config('app.url'));
+});
+
+/**
+* Practice
+*/
+Route::any('/practice/{n?}', 'PracticeController@index');
+
+
+/**
+* Welcome
+*/
 #Route::get('/', 'WelcomeController@index'); // if using index function of controller
 Route::get('/', 'WelcomeController');  // if using __invoke of WelcomeController
+
+
+/**
+* BookController
+*/
 Route::get('/book/', 'BookController@index');
 Route::get('/book/{title}', 'BookController@show');
 
@@ -21,6 +60,7 @@ Route::get('/book/{title}', 'BookController@show');
 Route::get('/example', 'BookController@example');
 
 
+/*============================================================================================*/
 /* Earlier example that does not use controllers:
 Route::get('/', function () {
     return view('welcome');
