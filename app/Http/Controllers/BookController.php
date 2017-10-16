@@ -10,12 +10,22 @@ class BookController extends Controller
 {
     # Return and index of all books
     public function index() {
-        return 'BookController says: Show all books.';
+        #return 'BookController says: Show all books.';
+        $jsonPath = database_path('books.json');
+        $booksJson = file_get_contents($jsonPath);
+        $books = json_decode($booksJson, true);
+
+        return view('book.index')->with([
+            'books' => $books
+        ]);
     }
 
     # Return information about a specific title (book)
     public function show($title) {
-        return 'BookController says: You requested '.$title;
+        #return 'BookController says: You requested '.$title;
+        return view('book.show')->with([
+            'title' => $title
+        ]);
     }
 
     # Example of invoking a class not in the current namespace:
