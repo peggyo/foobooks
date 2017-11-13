@@ -1,3 +1,19 @@
+@extends('layouts.master')
+
+@section('content')
+
+    <h1>Welcome</h1>
+    <p>
+        Foobooks is simple book organizer, used to catalog all your favorite reads.
+    </p>
+    <p>
+        Choose a feature above to get started.
+    </p>
+
+@endsection
+
+<!---  OLD CODE OF MINE
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -5,14 +21,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Foobooks</title>
-        <!-- Fonts -->
+        <COMMENT-- Fonts --COMMENT>
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     </head>
     <body>
         <h1>Welcome to Foobooks</h1>
     </body>
 </html>
-
+END OLD CODE OF MINE -->
 
 <!--- ORIGINAL CODE AS INSTALLED BY LARAVEL:
 <!doctype html>

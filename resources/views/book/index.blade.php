@@ -2,11 +2,13 @@
 @extends('layouts.master')
 
 
+@push('head')
+    <link href='/css/book.css' rel='stylesheet'>
+@endpush
+
 @section('title')
     All books
 @endsection
-
-<!-- Removed push of css file, not needed here -->
 
 @section('content')
     <h1>All Books</h1>
@@ -14,10 +16,12 @@
     <!-- <?php dump($books); ?> -->
 
     @foreach ($books as $title => $book)
-        <div class='book'>
-            <h2>{{ $title }} </h2>
-            Authored by: {{ $book['author'] }}
-        </div>
+    <div class='book cf'>
+        <img src='{{ $book['cover'] }}' class='cover' alt='Cover image for {{ $title }}'>
+        <h2>{{ $title }}</h2>
+        <p>By {{ $book['author'] }}</p>
+        <a href='/book/{{ kebab_case($title) }}'>View</a>
+    </div>
     @endforeach
 @endsection
 

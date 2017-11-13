@@ -3,9 +3,106 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Debugbar;
 use cebe\markdown\MarkdownExtra;
+use App\Book;
+
 
 class PracticeController extends Controller
 {
+
+
+    /**
+    *  Remove any books by the author “J.K. Rowling”.
+    */
+    public function practice11()
+    {
+        # Get all rows
+        #$result = Book::all();
+        #dump($result->toArray());
+
+        $result = Book::where('author', '=', 'J.K. Rowling')->delete();
+        #dump($result);
+
+        $result = Book::all();
+        dump($result->toArray());
+
+    }
+
+
+    /**
+    *  Find any books by the author Bell Hooks and update the author name to be bell hooks (lowercase).
+    */
+    public function practice10()
+    {
+        # Get all rows
+        #$result = Book::all();
+        #dump($result->toArray());
+
+        Book::where('author', '=', 'Sylvia Plath')
+          ->update(['author' => 'sylvia plath']);
+
+        $result = Book::all();
+        dump($result->toArray());
+
+    }
+
+
+    /**
+    * Retrieve all the books in descending order according to published date.
+    */
+    public function practice9()
+    {
+        # Get all rows
+        #$result = Book::all();
+        #dump($result->toArray());
+
+        $result = Book::orderBy('published', 'desc')->get();
+        dump($result->toArray());
+
+    }
+
+    /**
+    * Retrieve all the books published after 1950.
+    */
+    public function practice8()
+    {
+        # Get all rows
+        #$result = Book::all();
+        #dump($result->toArray());
+
+        $result = Book::where('published', '>', '1950')->get();
+        dump($result->toArray());
+        $result = Book::orderBy('created_at', 'desc')->take(2)->get();
+    }
+
+    /**
+    * Retrieve the last 2 books that were added to the books table.
+    */
+    public function practice7()
+    {
+        # Get all rows
+        #$result = Book::all();
+        #dump($result->toArray());
+
+        $result = Book::orderBy('created_at', 'desc')->take(2)->get();
+        dump($result->toArray());
+
+    }
+
+    /**
+    * Retrieve all the books in alphabetical order by title.
+    */
+    public function practice6()
+    {
+        # Get all rows
+        #$result = Book::all();
+        #dump($result->toArray());
+
+        # Retrieve all the books in alphabetical order by title.
+        $result = Book::orderBy('title')->get();
+        dump($result->toArray());
+
+    }
+
     /**
     * Showing Markdown package functionality, alternative:
     */
@@ -16,7 +113,6 @@ class PracticeController extends Controller
         echo $parser->parse('# Hello World');  Will produce <h1>Hello World</h1>
     }
     */
-
     /**
     * Show how to use some of the Markdown package functionality.
     */
@@ -26,8 +122,10 @@ class PracticeController extends Controller
         $parser = new MarkdownExtra();
         echo $parser->parse('# Hello World');
     }
+
     /**
     * Shows how to use some of the Debugbar functionality.
+    * If the use statement for the Debugbar was missing then use \Debugbar... here
     */
     public function practice4()
     {
@@ -50,7 +148,7 @@ class PracticeController extends Controller
     */
     public function practice2()
     {
-        $email = config('mail');
+        $email = config('mail');    //or mail.markdown.paths or mail.markdown, etc. you can dig deeper
         dump($email);
     }
     /**
