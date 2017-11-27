@@ -15,14 +15,17 @@
 
     <!-- <?php dump($books); ?> -->
 
-    @foreach ($books as $title => $book)
+    @foreach ($books as $book)
     <div class='book cf'>
-        <img src='{{ $book['cover'] }}' class='cover' alt='Cover image for {{ $title }}'>
-        <h2>{{ $title }}</h2>
+        <img src='{{ $book['cover'] }}' class='cover' alt='Cover image for {{ $book['title'] }}'>
+        <h2>{{ $book['title'] }}</h2>
         <p>By {{ $book['author'] }}</p>
-        <a href='/book/{{ kebab_case($title) }}'>View</a>
+        <a href='/book/{{ kebab_case($book['title']) }}'>View</a>
+        <a href='/book/{{ $book->id }}/delete'>Delete</a>
     </div>
     @endforeach
+
+
 @endsection
 
 <!-- Removed push of js file, not needed here -->

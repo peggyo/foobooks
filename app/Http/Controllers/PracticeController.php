@@ -9,6 +9,31 @@ use App\Book;
 class PracticeController extends Controller
 {
 
+    /**
+    *  Take a look at the Books Collection
+    */
+    public function practice12()
+    {
+        # Get all rows
+        $books = Book::all();
+        echo 'dump $books';
+        dump($books);
+
+        echo 'dump $books->toArray';
+        dump($books->toArray());
+
+        echo 'echo $books <br>';
+        echo $books;         # echo uses the __toString() MAGIC method - which converts to a string in JSON format
+
+        #Note that $books can be referenced as an array.
+        echo 'reference as array, dump title foreach <br>';
+        foreach($books as $book) {
+            dump($book['title']);
+            #OR:
+            #dump($book->title);
+        }
+
+    }
 
     /**
     *  Remove any books by the author “J.K. Rowling”.
@@ -39,6 +64,7 @@ class PracticeController extends Controller
 
         Book::where('author', '=', 'Sylvia Plath')
           ->update(['author' => 'sylvia plath']);
+
 
         $result = Book::all();
         dump($result->toArray());
