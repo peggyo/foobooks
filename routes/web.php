@@ -83,15 +83,38 @@ Route::get('/', 'WelcomeController');  // if using __invoke of WelcomeController
 
 /**
 * Book
+
+*Route::get('/book/create', 'BookController@create');
+*Route::post('/book', 'BookController@store');
+*Route::get('/book', 'BookController@index');
+*Route::get('/book/{title}', 'BookController@show');
+*Route::get('/search', 'BookController@search');
+
+
+* Example relates to namespaces and classes - see BookController for notes in comments
+*Route::get('/example', 'BookController@example');
 */
+
+/**
+* Book
+*/
+# Create a book
 Route::get('/book/create', 'BookController@create');
 Route::post('/book', 'BookController@store');
+# Edit a book
+Route::get('/book/{id}/edit', 'BookController@edit');
+Route::put('/book/{id}', 'BookController@update');
+
+# Delete a book
+Route::any('/book/{id}/delete', 'BookController@delete');
+
+# View all books
 Route::get('/book', 'BookController@index');
-Route::get('/book/{title}', 'BookController@show');
+# View a book
+Route::get('/book/{id}', 'BookController@show');
+# Search all books
 Route::get('/search', 'BookController@search');
 
-# Example relates to namespaces and classes - see BookController for notes in comments
-Route::get('/example', 'BookController@example');
 
 
 /**
